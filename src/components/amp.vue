@@ -67,9 +67,20 @@ export default {
   },
   computed: {},
   methods: {
-    TEST1: function () {},
+    viewInit: function () {
+      let me = this
+			let param = new URLSearchParams()
+			param.append('sortMethods', "default")
+			this.axios.post('productList', param).then((response) => {
+				if (response.data == 'sucess') {
+
+				}
+			})
+    },
   },
-  mounted: function () {},
+  mounted: function () {
+    this.viewInit()
+  },
 };
 </script>
 <style>
