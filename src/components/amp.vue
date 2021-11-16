@@ -1,53 +1,12 @@
 <template>
   <div class="text-caption">
-    <div
-      class="box"
-      style="align-content: flex-start;flex-flow: row wrap;"
-    >
-      <div class = "box-item">
+    <div class="box" style="align-content: flex-start; flex-flow: row wrap">
+      <div class="box-item"  v-for="item in card_datas" v-bind:key="item.id">
         <v-card class="mx-auto" max-width="300">
-          <v-img src="/static/products/mk2/main.jpg" height="300px"></v-img>
-          <v-card-title> MK-12 Headphone Amp. </v-card-title>
+          <v-img :src="item.img" height="300px"></v-img>
+          <v-card-title> {{item.title}} </v-card-title>
           <v-card-subtitle>
-            A classic entry-level pure tubes amp.
-          </v-card-subtitle>
-          <v-card-actions>
-            <v-btn color="orange lighten-2" text> Explore </v-btn>
-          </v-card-actions>
-        </v-card>
-      </div>
-      <div class = "box-item">
-        <v-card class="mx-auto" max-width="300">
-          <v-img src="/static/products/ldh1/main.jpg" height="300px"></v-img>
-          <v-card-title> MK-11 Headphone Amp. </v-card-title>
-          <v-card-subtitle>
-            A classic entry-level pure tubes amp.
-          </v-card-subtitle>
-          <v-card-actions>
-            <v-btn color="orange lighten-2" text> Explore </v-btn>
-          </v-card-actions>
-        </v-card>
-      </div>
-
-      <div class = "box-item">
-        <v-card class="mx-auto" max-width="300">
-          <v-img src="/static/products/ld1+/main.jpg" height="300px"></v-img>
-          <v-card-title> LD1+ Headphone Amp. </v-card-title>
-          <v-card-subtitle>
-            A classic entry-level hybrid tubes amp.
-          </v-card-subtitle>
-          <v-card-actions>
-            <v-btn color="orange lighten-2" text> Explore </v-btn>
-          </v-card-actions>
-        </v-card>
-      </div>
-
-      <div class = "box-item">
-        <v-card class="mx-auto" max-width="300">
-          <v-img src="/static/products/mk3/main.jpg" height="300px"></v-img>
-          <v-card-title> MK-3 Headphone Amp. </v-card-title>
-          <v-card-subtitle>
-            A classic entry-level pure tubes amp.
+             {{item.description}} 
           </v-card-subtitle>
           <v-card-actions>
             <v-btn color="orange lighten-2" text> Explore </v-btn>
@@ -63,23 +22,25 @@ export default {
   data() {
     return {
       show: false,
+      card_datas: [],
     };
   },
   computed: {},
   methods: {
     viewInit: function () {
-      let me = this
-			let param = new URLSearchParams()
-			param.append('sortMethods', "default")
-			this.axios.post('productList', param).then((response) => {
-				if (response.data == 'sucess') {
-
-				}
-			})
+      let me = this;
+      let param = new URLSearchParams();
+      param.append("sortMethods", "default");
+      this.axios.post("productList", param).then((response) => {
+        if (response.data) {
+          this.card_datas = JSON.parse(response.data);
+          console.log( this.card_datas );
+        }
+      });
     },
   },
   mounted: function () {
-    this.viewInit()
+    this.viewInit();
   },
 };
 </script>
@@ -88,7 +49,7 @@ export default {
   display: flex;
 }
 .box-item {
-  flex:0 0 300px;
+  flex: 0 0 300px;
   margin: 10px;
 }
 </style>
