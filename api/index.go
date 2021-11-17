@@ -35,6 +35,54 @@ type Order struct {
 	Vendor     string     `json:"vendor_id"`
 }
 
+func productList(ctx iris.Context) { //获取订单数据
+
+	var sql, class_sql string
+	Class := ctx.FormValue("Class")
+	sortMethods := ctx.FormValue("sortMethods")
+	// headphone_amp	1
+	// loudspeaker_amp	2
+	// dualuse_amp		3
+	// dac				4
+	// regenerator		5
+	// cdplayer			6
+	// iems				7
+
+	fmt.Println("sortMethods:", sortMethods)
+	fmt.Println("Class:", Class)
+
+	switch Class {
+	case "headphone_amp":
+		class_sql = "class = 1 or class = 3"
+	case "loudspeaker_amp":
+		class_sql = "class = 2 or class = 3"
+	case "dualuse_amp":
+		class_sql = "class = 3"
+	case "dac":
+		class_sql = "class = 4"
+	case "regenerator":
+		class_sql = "class = 5"
+	case "cdplayer":
+		class_sql = "class = 6"
+	case "iems":
+		class_sql = "class = 7"
+
+	}
+
+	sql = "Select * From products Where " + class_sql
+
+	var err error
+	var b []byte
+	var rst []map[string]string
+	rst, err = mysql_con.Query(sql)
+	if err == nil {
+		b, err = json.Marshal(rst)
+		if err == nil {
+			ctx.JSON(string(b))
+		}
+	}
+}
+
 func updateProductPosition(ctx iris.Context) { //更新产品显示位置
 	type Position struct {
 		Id       string `json:"id"`
@@ -355,25 +403,6 @@ func getOrderSubOrders(ctx iris.Context) { //获取子订单数据
 	var SQL string
 	order_id := ctx.FormValue("order_id")
 	SQL = "SELECT * FROM ld_order_suborder where order_id = " + order_id
-	var err error
-	var b []byte
-	var rst []map[string]string
-	rst, err = mysql_con.Query(SQL)
-	if err == nil {
-		b, err = json.Marshal(rst)
-		if err == nil {
-			ctx.JSON(string(b))
-		}
-	}
-}
-
-func productList(ctx iris.Context) { //获取订单数据
-
-	sortMethods := ctx.FormValue("sortMethods")
-	fmt.Println("sortMethods:", sortMethods)
-
-	SQL := "Select * From products"
-
 	var err error
 	var b []byte
 	var rst []map[string]string

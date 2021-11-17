@@ -9,7 +9,7 @@
         <v-list-item
           v-for="item in products"
           :key="item.text"
-          @click="test(item.path)"
+          @click="route(item.path, item.msg)"
           link
         >
           <!-- v-for 是 vue的标准语法，item in items的 items 是一个数组，:key 表示唯一值 -->
@@ -81,36 +81,56 @@ export default {
     drawer: false,
     localStorage: window.localStorage,
     products: [
-      { icon: "mdi-headphones", text: "Headphone Amps", path: "amp" },
-      { icon: "mdi-speaker", text: "Loud Speaker Amps", path: "charts" },
+      {
+        icon: "mdi-headphones",
+        text: "Headphone Amps",
+        path: "products",
+        msg: "headphone_amp",
+      },
+      {
+        icon: "mdi-speaker",
+        text: "Loud Speaker Amps",
+        path: "products",
+        msg: "loudspeaker_amp",
+      },
       {
         icon: "mdi-crop-rotate",
         text: "Digital-to-analog Converter",
         path: "products",
+        msg: "dac",
       },
-      { icon: "mdi-sine-wave", text: "Power Regenerator", path: "vendors" },
-      { icon: "mdi-disc-player", text: "CD Player", path: "Earth" },
-      { icon: "mdi-earbuds", text: "Headphone & IEMs", path: "crawler" },
+      {
+        icon: "mdi-sine-wave",
+        text: "Power Regenerator",
+        path: "products",
+        msg: "regenerator",
+      },
+      {
+        icon: "mdi-disc-player",
+        text: "CD Player",
+        path: "products",
+        msg: "cdplayer",
+      },
+      {
+        icon: "mdi-earbuds",
+        text: "Headphone & IEMs",
+        path: "products",
+        msg: "iems",
+      },
     ],
     communications: [
-      { icon: "mdi-forum", text: "Forums", path: "amp" },
-      { icon: "mdi-account-box", text: "Account", path: "charts" },
-
+      { icon: "mdi-forum", text: "Forums", path: "forums" },
+      { icon: "mdi-account-box", text: "Account", path: "account" },
     ],
   }),
   methods: {
-    test: function (path) {
-      this.$router.push({ name: path, params: {} });
-    },
-    reset: function () {
-      //清除本地Cache
-      this.localStorage.removeItem("state_list");
-      this.localStorage.removeItem("vendor_list");
-      this.localStorage.removeItem("voltage_list");
-      this.localStorage.removeItem("product_list");
-      this.localStorage.removeItem("express_list");
-      this.localStorage.removeItem("price_list");
-      this.localStorage.removeItem("products_class_list");
+    route: function (path, msg) {
+      this.$router.push({
+        name: path,
+        params: {
+          msg: msg,
+        },
+      });
     },
   },
 };

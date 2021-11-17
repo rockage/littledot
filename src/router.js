@@ -1,5 +1,5 @@
 import VueRouter from "vue-router";
-import amp from './components/amp'
+import products from './components/products'
 
 const originalPush = VueRouter.prototype.push;
 VueRouter.prototype.push = function push(location) {
@@ -9,7 +9,7 @@ VueRouter.prototype.push = function push(location) {
 export default new VueRouter({
     mode: 'history',
     routes: [
-        {path: '/', component: amp},
-        {path: '/msg/:msg', name: 'amp', component: amp},
+        {path: '/', component: products},
+        {path: '/msg/:msg', name: 'products', component: products},
     ]
 }) 
