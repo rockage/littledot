@@ -10,7 +10,9 @@
             {{ item.description }}
           </v-card-subtitle>
           <v-card-actions>
-            <v-btn color="orange lighten-2" text> Explore </v-btn>
+            <v-btn color="orange lighten-2" text @click="route(item.name)">
+              Explore
+            </v-btn>
           </v-card-actions>
         </v-card>
       </div>
@@ -26,15 +28,14 @@ export default {
       card_datas: [],
     };
   },
-  computed: {
-
-  },
+  computed: {},
   watch: {
     // 如果路由有变化，视图即时刷新
     $route: "viewInit",
   },
   methods: {
     viewInit: function () {
+      console.log(this.$route.params.msg)
       let me = this;
       let param = new URLSearchParams();
       param.append("sortMethods", "default");
@@ -45,9 +46,20 @@ export default {
         }
       });
     },
+    route: function (product_name) {
+      this.$router.push({
+        name: "products_view",
+        params: {
+          msg: product_name,
+        },
+      });
+    },
+  },
+  created() {
+    this.viewInit()
   },
   mounted: function () {
-    this.viewModel = this.$route.params.msg;
+    
   },
 };
 </script>

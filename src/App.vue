@@ -33,7 +33,7 @@
         <v-list-item
           v-for="item in communications"
           :key="item.text"
-          @click="test(item.path)"
+          @click="route(item.path, item.msg)"
           link
         >
           <!-- v-for 是 vue的标准语法，item in items的 items 是一个数组，:key 表示唯一值 -->
@@ -74,6 +74,7 @@
 <script>
 export default {
   name: "app",
+
   props: {
     source: String,
   },
@@ -119,7 +120,7 @@ export default {
       },
     ],
     communications: [
-      { icon: "mdi-forum", text: "Forums", path: "forums" },
+      { icon: "mdi-forum", text: "Forums", path: "products_view", msg: "mk2" },
       { icon: "mdi-account-box", text: "Account", path: "account" },
     ],
   }),
