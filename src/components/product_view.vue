@@ -1,11 +1,10 @@
 <template>
   <div id="editor">
-    <textarea :value="input"></textarea>
     <div v-html="output"></div>
   </div>
 </template>
 <script>
-import { marked } from "marked";
+import { marked } from "marked"
 
 export default {
   name: "products",
@@ -13,61 +12,39 @@ export default {
     return {
       input: "",
       output: "",
-    };
+    }
   },
   computed: {},
   watch: {},
   methods: {
     readFile: function () {
-      this.axios({ url: "/static/products/mk2/mk2.md", baseURL: "" }).then(
-        (response) => {
+      let me = this
+      let product_name = this.$route.params.msg
+      let url = "/static/products/" + product_name + "/" + product_name + ".md"
+      this.axios({ url: url, baseURL: "" })
+        .then((response) => {
           if (response.data) {
-            console.log(response.data);
-            this.output = marked(response.data);
-            console.log("okok");
+            console.log(response.data)
+            me.output = marked(response.data)
+          } else {
           }
-        }
-      );
+        })
+        .catch(function (err) {
+          me.output = marked(
+            '<h1 class="h1-text">Sorry, this page is under construction</h1>'
+          )
+        })
     },
   },
   mounted: function () {
-    this.readFile();
+    this.readFile()
     //console.log( marked(this.input))
   },
-};
+}
 </script>
 <style>
-html,
-body,
-#editor {
-  margin: 0;
-  height: 100%;
-  font-family: "Helvetica Neue", Arial, sans-serif;
-  color: #333;
-}
-
-textarea,
-#editor div {
-  display: inline-block;
-  width: 49%;
-  height: 100%;
-  vertical-align: top;
-  box-sizing: border-box;
-  padding: 0 20px;
-}
-
-textarea {
-  border: none;
-  border-right: 1px solid #ccc;
-  resize: none;
-  outline: none;
-  background-color: #f6f6f6;
-  font-size: 14px;
-  font-family: "Monaco", courier, monospace;
-  padding: 20px;
-}
-
-code {
-  color: #f66;
+.h1-text {
+  text-align: center;
+  margin-top: 30%;
 }
 </style>

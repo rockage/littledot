@@ -70,11 +70,12 @@ func productList(ctx iris.Context) { //获取订单数据
 	}
 
 	sql = "Select * From products Where " + class_sql
-
+	fmt.Println("SQL:", sql)
 	var err error
 	var b []byte
 	var rst []map[string]string
 	rst, err = mysql_con.Query(sql)
+
 	if err == nil {
 		b, err = json.Marshal(rst)
 		if err == nil {

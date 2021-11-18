@@ -35,14 +35,13 @@ export default {
   },
   methods: {
     viewInit: function () {
-      console.log(this.$route.params.msg)
-      let me = this;
-      let param = new URLSearchParams();
-      param.append("sortMethods", "default");
-      param.append("Class", this.$route.params.msg);
+      let me = this
+      let param = new URLSearchParams()
+      param.append("sortMethods", "default")
+      param.append("Class", this.$route.params.msg)
       this.axios.post("productList", param).then((response) => {
         if (response.data) {
-          this.card_datas = JSON.parse(response.data);
+          me.card_datas = JSON.parse(response.data)
         }
       });
     },
