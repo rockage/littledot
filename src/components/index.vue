@@ -27,11 +27,5 @@ export default {
 };
 </script>
 <style>
-.box {
-  display: flex;
-}
-.box-item {
-  flex: 0 0 300px;
-  margin: 10px;
-}
+
 </style>

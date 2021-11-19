@@ -1,50 +1,93 @@
 <template>
-  <div id="editor">
-    <div v-html="output"></div>
+  <div class="main">
+    <v-carousel hide-delimiters v-if="carousel">
+      <v-carousel-item
+        v-for="(item, i) in pic_group"
+        :key="i"
+        :src="item.src"
+        reverse-transition="fade-transition"
+        transition="fade-transition"
+      ></v-carousel-item>
+    </v-carousel>
+
+    <div v-html="output" class="html_output"></div>
   </div>
 </template>
 <script>
-import { marked } from "marked"
+import { marked } from "marked";
 
 export default {
   name: "products",
   data() {
     return {
-      input: "",
+      carousel: false,
       output: "",
-    }
+      pic_group: [],
+    };
   },
   computed: {},
   watch: {},
   methods: {
     readFile: function () {
-      let me = this
-      let product_name = this.$route.params.msg
-      let url = "/static/products/" + product_name + "/" + product_name + ".md"
+      let me = this;
+      let product_name = this.$route.params.msg;
+      let url = "/static/products/" + product_name + "/info.md";
       this.axios({ url: url, baseURL: "" })
         .then((response) => {
           if (response.data) {
-            console.log(response.data)
-            me.output = marked(response.data)
+            me.carousel = true;
+            me.output = marked(response.data);
+
+            for (let i = 1; i <= 5; i++) {
+              me.pic_group.push({
+                src: "/static/products/" + product_name + "/" + String(i) + ".jpg",
+              });
+            }
+
+            console.log(me.pic_group);
           } else {
           }
         })
         .catch(function (err) {
+          me.carousel = false;
           me.output = marked(
             '<h1 class="h1-text">Sorry, this page is under construction</h1>'
-          )
-        })
+          );
+        });
     },
   },
   mounted: function () {
-    this.readFile()
-    //console.log( marked(this.input))
+    this.readFile();
   },
-}
+};
 </script>
 <style>
 .h1-text {
   text-align: center;
-  margin-top: 30%;
+  margin-top: 10px;
+}
+
+.html_output {
+  line-height: 2 !important;
+  font-family: "Lato", sans-serif;
+}
+
+.main {
+  display: flex;
+  margin: 10px;
+  flex-direction: column;
+}
+
+.main img {
+  width: 90%;
+  height: auto;
+}
+
+@font-face {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(/static/S6u9w4BMUTPHh7USeww.woff) format("woff");
 }
 </style>

@@ -50,7 +50,7 @@
     </v-navigation-drawer>
 
     <!-- v-app-bar 是顶部栏，一般放一些操作类的按钮、搜索功能等 -->
-    <v-app-bar app clipped-left color="cyan" dense>
+    <v-app-bar app clipped-left color="white" dense>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
       <!-- 此处通过修改drawer变量来决定导航栏是否隐藏，PS：当宽度被压缩的时候导航栏自动隐藏（比如手机） -->
       <v-toolbar-title></v-toolbar-title>
@@ -61,13 +61,7 @@
       <router-view></router-view>
     </v-main>
 
-    <v-footer color="cyan" app>
-      <!-- v-footer是最底部的页脚栏，一般用于放置版权信息之类杂项 -->
-      <v-spacer></v-spacer>
-      <span class="white--text"
-        >&copy; {{ new Date().getFullYear() }} LittleDot Audio</span
-      >
-    </v-footer>
+
   </v-app>
 </template>
 
@@ -96,7 +90,7 @@ export default {
       },
       {
         icon: "mdi-crop-rotate",
-        text: "Digital-to-analog Converter",
+        text: "DAC & Streaming Device",
         path: "products",
         msg: "dac",
       },
