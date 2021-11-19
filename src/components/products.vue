@@ -1,11 +1,28 @@
 <template>
-  <div class="text-caption">
-    
-    <div class="box">
-      <div class="box-item" v-for="item in card_datas" v-bind:key="item.id">
-
-      </div>
-    </div>
+  <div class="grid_box">
+    <v-card
+      class="ma-1"
+      tile
+      v-for="item in card_datas"
+      v-bind:key="item.id"
+      max-width="320px"
+      max-height="480px"
+    >
+      <v-img :src="item.img"></v-img>          
+      <v-card-title> {{ item.title }} </v-card-title>          
+      <v-card-subtitle>
+                    {{ item.description }}          
+      </v-card-subtitle>
+               
+      <v-card-actions>
+                   
+        <v-btn color="orange lighten-2" text @click="route(item.name)">
+                        Explore            
+        </v-btn>
+                 
+      </v-card-actions>
+             
+    </v-card>
   </div>
 </template>
 <script>
@@ -15,7 +32,7 @@ export default {
     return {
       show: false,
       card_datas: [],
-    };
+    }
   },
   computed: {},
   watch: {
@@ -32,7 +49,7 @@ export default {
         if (response.data) {
           me.card_datas = JSON.parse(response.data)
         }
-      });
+      })
     },
     route: function (product_name) {
       this.$router.push({
@@ -40,23 +57,19 @@ export default {
         params: {
           msg: product_name,
         },
-      });
+      })
     },
   },
   created() {
     this.viewInit()
   },
-  mounted: function () {
-    
-  },
-};
+  mounted: function () {},
+}
 </script>
 <style>
-
-.box-item {
-  
-  background: green;
-  width:50px;
-  height:50px;
+.grid_box {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 320px);
+  justify-content: center;
 }
 </style>
