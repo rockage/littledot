@@ -48,6 +48,7 @@ export default {
       this.axios.post("productList", param).then((response) => {
         if (response.data) {
           me.card_datas = JSON.parse(response.data)
+          console.log( me.card_datas )
         }
       })
     },

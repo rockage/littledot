@@ -114,12 +114,13 @@ export default {
       },
     ],
     communications: [
-      { icon: "mdi-forum", text: "Forums", path: "products_view", msg: "mk2" },
-      { icon: "mdi-account-box", text: "Account", path: "account" },
+      { icon: "mdi-forum", text: "Forums", path: "forums", msg: "index" },
+      { icon: "mdi-account-box", text: "Contact Us", path: "contact", msg: "index" },
     ],
   }),
   methods: {
     route: function (path, msg) {
+      console.log(path)
       this.$router.push({
         name: path,
         params: {
