@@ -1,7 +1,7 @@
 ### Introduction
 
-- The LittleDot LD Y2 is a headphone and loud speaker dual-use amplifier with 300B tubes. In order to achieve the best performance, its power unit and amplification unit are independent. The power supply part of LD Y2 is also uses electronic tube rectification. The rectifier tube is from the Soviet Union. 5U4G. And the pre-drive tube of LD-Y2 is RCA 6SH7.  
-- As we all know, 300B is a very good power tube for the amplifier. As the core of  LD-Y2, we chooses JJ300B, which is the industry-leading, from Czech.
+- The LittleDot LD Y2 is a headphone and loud speaker dual-use amplifier with 300B tubes. In order to achieve the best performance, its power unit and amplification unit are independent. The power supply part of LD Y2  uses the tube rectification. The rectifier tube is come from Soviet Union, 5U4G. 
+- As we all know, 300B is a very good power tube for the amplifier. As the core of  LD-Y2, we chooses JJ300B, which is the industry-leading, from Czech. In the selection of the preamp tube, according to the original recommendation of 300B usage, we choose RCA 6SH7 as the preamp tube for it.
 - The other parts of LD Y2 are also very elaborate, including:
 
   1. Swiss Lundal™ input transformer

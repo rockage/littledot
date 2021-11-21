@@ -28,9 +28,9 @@ Famous BC E-Cap as filter capacitors from Philips™. M-cap EVO audio special-pu
 - Unbalanced: RCAx2
 
 - Output Terminal:
-      Balance: XLR 4p x1
-      Unbalanced: 6.35mm x1
-      Pre-output: Balance: XLR 3p x2
+  - Balance: XLR 4p x1
+  - Unbalanced: 6.35mm x1
+  - Pre-output: Balance: XLR 3p x2
 - Input impedance: 10 K ohm
 
 - Distortion: 0.001% (output: 2V rms 1000Hz)
@@ -40,16 +40,16 @@ Famous BC E-Cap as filter capacitors from Philips™. M-cap EVO audio special-pu
 - Frequency response: 10Hz – 50KHz (-0.1dB)
 
 - Output Power:
-      5W (32 ohms)
-      1.8W (120 Ω)
-      0.8W (300 Ω)
-      0.4W (600 Ω)
+  - 5W (32 ohms)
+  - 1.8W (120 Ω)
+  - 0.8W (300 Ω)
+  - 0.4W (600 Ω)
 
 - Adapted headphone impedance: 16 ohm ~ 600 ohms
 
 - Gain:
-      Gain = HIGH: 9
-      Gain = LOW: 4.5
+  - Gain = HIGH: 9
+  - Gain = LOW: 4.5
 
 - Power consumption: 25 VA
 

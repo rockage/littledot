@@ -54,7 +54,7 @@
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
       <!-- 此处通过修改drawer变量来决定导航栏是否隐藏，PS：当宽度被压缩的时候导航栏自动隐藏（比如手机） -->
       <v-toolbar-title></v-toolbar-title>
-      <v-btn text @click="reset()">RESET</v-btn>
+     <img src="/static/logo.png" style="cursor:pointer;" @click="route('index','index')"> </img>
     </v-app-bar>
 
     <v-main>
@@ -90,7 +90,7 @@ export default {
       },
       {
         icon: "mdi-crop-rotate",
-        text: "DAC & Streaming Device",
+        text: "DAC & Streaming",
         path: "products",
         msg: "dac",
       },
@@ -120,7 +120,7 @@ export default {
   }),
   methods: {
     route: function (path, msg) {
-      console.log(path)
+
       this.$router.push({
         name: path,
         params: {
@@ -131,3 +131,12 @@ export default {
   },
 };
 </script>
+<style>
+@font-face {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(/static/S6u9w4BMUTPHh7USeww.woff) format("woff");
+}
+</style>

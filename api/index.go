@@ -53,23 +53,25 @@ func productList(ctx iris.Context) { //获取订单数据
 
 	switch Class {
 	case "headphone_amp":
-		class_sql = "class = 1 or class = 3"
+		class_sql = "Where class = 1 or class = 3"
 	case "loudspeaker_amp":
-		class_sql = "class = 2 or class = 3"
+		class_sql = "Where class = 2 or class = 3"
 	case "dualuse_amp":
-		class_sql = "class = 3"
+		class_sql = "Where class = 3"
 	case "dac":
-		class_sql = "class = 4"
+		class_sql = "Where class = 4"
 	case "regenerator":
-		class_sql = "class = 5"
+		class_sql = "Where class = 5"
 	case "cdplayer":
-		class_sql = "class = 6"
+		class_sql = "Where class = 6"
 	case "iems":
-		class_sql = "class = 7"
+		class_sql = "Where class = 7"
+	case "all":
+		class_sql = ""
 
 	}
 
-	sql = "Select * From products Where " + class_sql
+	sql = "Select * From products " + class_sql
 	fmt.Println("SQL:", sql)
 	var err error
 	var b []byte

@@ -43,8 +43,6 @@ export default {
                 src: "/static/products/" + product_name + "/" + String(i) + ".jpg",
               });
             }
-
-            console.log(me.pic_group);
           } else {
           }
         })
@@ -83,11 +81,5 @@ export default {
   height: auto;
 }
 
-@font-face {
-  font-family: "Lato";
-  font-style: normal;
-  font-weight: 300;
-  font-display: swap;
-  src: url(/static/S6u9w4BMUTPHh7USeww.woff) format("woff");
-}
+
 </style>

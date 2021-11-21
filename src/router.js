@@ -14,7 +14,7 @@ VueRouter.prototype.push = function push(location) {
 export default new VueRouter({
     mode: 'history',
     routes: [
-        {path: '/', component: index},
+        {path: '/', name: 'index', component: index},
         {path: '/msg/:msg', name: 'products', component: products},
         {path: '/forums', name: 'forums', component: forums},
         {path: '/contact', name: 'contact', component: contact},
