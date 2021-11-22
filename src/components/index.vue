@@ -39,14 +39,15 @@
           box-shadow: darkgrey 1px 1px 1px 1px;
         "
       >
-        <SPAN style="font-weight:bold;font-size:large;">LD-ZERO Hybrid Tube Headphone Amp</SPAN>
+        <SPAN style="font-weight: bold; font-size: large"
+          >LD-ZERO Hybrid Tube Headphone Amp</SPAN
+        >
         <BR></BR>
         ■ Released in November 2021 <BR></BR> ■ Build in USB DAC <BR></BR> ■
         LDAC Blueteeth 5.0 <BR></BR>
-        ■ DC Battery Power Available      
+        ■ Can be powered by portable battery      
 
-        <v-btn color="orange lighten-2" text @click="route(item.name)"
-          ><SPAN style="font-weight:bold;">Explore</SPAN></v-btn
+        <v-btn color="orange lighten-2" text @click="route('LD-ZERO')"><SPAN style="font-weight: bold">Explore</SPAN></v-btn
         >
       </div>
     </div>
@@ -69,7 +70,16 @@ export default {
   },
   computed: {},
   watch: {},
-  methods: {},
+  methods: {
+    route: function (product_name) {
+      this.$router.push({
+        name: "products_view",
+        params: {
+          msg: product_name,
+        },
+      })
+    },
+  },
   created() {},
   mounted: function () {},
 };
