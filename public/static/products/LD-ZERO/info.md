@@ -11,7 +11,7 @@
 
 - LD-ZERO is also compatible with some famou tubes such as 1T4, 1S5, CV784, etc., the choice is very rich, playability is very strong!
 
-- In general, due to its special structure, the tube amps need to work under the AC mains. But this time, LD-ZERO pioneered to let rechargeable batteries can also power it, so that the "portable gallows" has become a reality, playability upgraded again!
+- In general, due to its special structure, the tube amps need to work under the AC mains. But this time, LD-ZERO pioneered to let rechargeable batteries can also power it, so that the "portable tube amp" has become a reality, playability upgraded again!
 
 <BR>
 

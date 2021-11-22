@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : localhost
-Source Server Version : 50714
+Source Server         : 127.0.0.1
+Source Server Version : 50718
 Source Host           : localhost:3306
 Source Database       : littledot_web
 
 Target Server Type    : MYSQL
-Target Server Version : 50714
+Target Server Version : 50718
 File Encoding         : 65001
 
-Date: 2021-11-20 19:00:18
+Date: 2021-11-23 02:49:27
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -31,7 +31,7 @@ CREATE TABLE `products` (
   `ttm` date DEFAULT NULL,
   `position` tinyint(3) unsigned zerofill DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of products
@@ -45,3 +45,4 @@ INSERT INTO `products` VALUES ('6', 'DAC-7', 'Digital to analog convert', '004',
 INSERT INTO `products` VALUES ('7', 'LDP-1000', 'Power regenerator', '005', '1', '/static/products/ldp1000/main.jpg', 'High Performance Voltage Regulators', null, '2018-08-08', '007');
 INSERT INTO `products` VALUES ('8', 'CDP-2', 'CD Player', '006', '1', '/static/products/cdp2/main.jpg', 'cd', '0000000011', '2010-08-08', '008');
 INSERT INTO `products` VALUES ('9', 'CU-RAD', 'CU-RAD IEMs', '007', '1', '/static/products/rad/main.jpg', 'ear phone rad', '0000000012', '2020-01-01', '009');
+INSERT INTO `products` VALUES ('10', 'LD-ZERO', 'DAC Headphone amp', '001', '1', '/static/products/LD-ZERO/main.jpg', 'all in one amp', '0000000111', '2021-11-11', '010');

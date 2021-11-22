@@ -16,8 +16,10 @@
           display: flex;
           flex-direction: row;
           justify-content: center;
-          background: #e1e4e3;
+          background: white;
+           width: 90%;
           flex-wrap: wrap;
+          margin-top:10px;
         "
       >
         <img src="/static/index-left.jpg" style="width: 380px" />
