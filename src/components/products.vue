@@ -8,7 +8,9 @@
       max-width="200px"
       max-height="480px"
     >
-      <v-img :src="item.img"></v-img>          
+      <v-img :src="'/static/products/' + item.name + '/main.jpg'"></v-img>  
+      
+              
       <v-card-title> {{ item.name }} </v-card-title>          
       <v-card-subtitle>{{ item.description }}</v-card-subtitle>
       <v-card-actions>
@@ -27,7 +29,7 @@ export default {
     return {
       show: false,
       card_datas: [],
-    }
+    };
   },
   computed: {},
   watch: {
@@ -36,19 +38,19 @@ export default {
   },
   methods: {
     viewInit: function () {
-      let me = this
-      let param = new URLSearchParams()
-      param.append("sortMethods", "default")
+      let me = this;
+      let param = new URLSearchParams();
+      param.append("sortMethods", "default");
       if (this.sort == "all") {
-        param.append("Class", "all") // index页面查询所有产品
+        param.append("Class", "all"); // index页面查询所有产品
       } else {
-        param.append("Class", this.$route.params.msg)
+        param.append("Class", this.$route.params.msg);
       }
       this.axios.post("productList", param).then((response) => {
         if (response.data) {
-          me.card_datas = JSON.parse(response.data)
+          me.card_datas = JSON.parse(response.data);
         }
-      })
+      });
     },
     route: function (product_name) {
       this.$router.push({
@@ -56,14 +58,14 @@ export default {
         params: {
           msg: product_name,
         },
-      })
+      });
     },
   },
   created() {
-    this.viewInit()
+    this.viewInit();
   },
   mounted: function () {},
-}
+};
 </script>
 <style>
 .grid_box {
