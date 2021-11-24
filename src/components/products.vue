@@ -1,5 +1,12 @@
 <template>
-  <div class="grid_box" style="background:#e1e4e3">
+<div style="
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          background: #e1e4e3;
+          width:100%;
+          ">
+  <div class="grid_box" style="background:white;width:90%;box-shadow: darkgrey 1px 1px 1px 1px;">
     <v-card
       class="ma-1"
       tile
@@ -19,6 +26,7 @@
         >
       </v-card-actions>
     </v-card>
+  </div>
   </div>
 </template>
 <script>

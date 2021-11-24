@@ -17,9 +17,10 @@
           flex-direction: row;
           justify-content: center;
           background: white;
-           width: 90%;
+          width: 90%;
           flex-wrap: wrap;
-          margin-top:10px;
+          margin-top: 10px;
+          box-shadow: darkgrey 1px 1px 1px 1px;
         "
       >
         <img src="/static/index-left.jpg" style="width: 380px" />
@@ -49,7 +50,8 @@
         LDAC Blueteeth 5.0 <BR></BR>
         ■ Can be powered by portable battery      
 
-        <v-btn color="orange lighten-2" text @click="route('LD-ZERO')"><SPAN style="font-weight: bold">Explore</SPAN></v-btn
+        <v-btn color="orange lighten-2" text @click="route('LD-ZERO')"
+          ><SPAN style="font-weight: bold">Explore</SPAN></v-btn
         >
       </div>
     </div>
@@ -79,7 +81,7 @@ export default {
         params: {
           msg: product_name,
         },
-      })
+      });
     },
   },
   created() {},
