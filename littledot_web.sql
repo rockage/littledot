@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : 104.129.8.244(pacificrack)
-Source Server Version : 50505
-Source Host           : 104.129.8.244:3306
+Source Server         : localhost
+Source Server Version : 50714
+Source Host           : localhost:3306
 Source Database       : littledot_web
 
 Target Server Type    : MYSQL
-Target Server Version : 50505
+Target Server Version : 50714
 File Encoding         : 65001
 
-Date: 2021-11-24 21:08:36
+Date: 2021-11-25 20:52:48
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -30,7 +30,7 @@ CREATE TABLE `products` (
   `ttm` date DEFAULT NULL,
   `position` tinyint(3) unsigned zerofill DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of products
@@ -45,3 +45,5 @@ INSERT INTO `products` VALUES ('7', 'LDP-1000', 'Power regenerator', '005', '1',
 INSERT INTO `products` VALUES ('8', 'CDP-2', 'CD Player', '006', '1', 'Philips Daisy GF8 Module', '0000000011', '2010-08-08', '008');
 INSERT INTO `products` VALUES ('9', 'CU-RAD', 'CU-RAD IEMs', '007', '1', 'Multiayer Nanomaterial IEM', '0000000012', '2020-01-01', '009');
 INSERT INTO `products` VALUES ('10', 'LD-ZERO', 'DAC Headphone amp', '001', '1', 'All In One headphone amp with DAC & Blueteeth', '0000000111', '2021-11-11', '010');
+INSERT INTO `products` VALUES ('11', 'MK3-SE', 'MK3-SE', '001', '1', 'Hybrid tube balanced headphone amp', '0000000123', '2008-08-08', '011');
+INSERT INTO `products` VALUES ('12', 'LD3-SE', null, '001', '1', 'All tubes headphone & speak amp', '0000000111', '2008-08-08', '012');

@@ -17,7 +17,7 @@
           flex-direction: row;
           justify-content: center;
           background: white;
-          width: 90%;
+          width: 95%;
           flex-wrap: wrap;
           margin-top: 10px;
           box-shadow: darkgrey 1px 1px 1px 1px;
@@ -29,7 +29,7 @@
 
       <div
         style="
-          width: 90%;
+          width: 95%;
           display: flex;
           flex-direction: column;
           align-items: center;

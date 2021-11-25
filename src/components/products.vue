@@ -6,25 +6,20 @@
           background: #e1e4e3;
           width:100%;
           ">
-  <div class="grid_box" style="background:white;width:90%;box-shadow: darkgrey 1px 1px 1px 1px;">
+  <div class="grid_box" style="background:white;width:95%;box-shadow: darkgrey 1px 1px 1px 1px;">
     <v-card
-      class="ma-1"
       tile
       v-for="item in card_datas"
       v-bind:key="item.id"
-      max-width="200px"
-      max-height="480px"
-    >
-      <v-img :src="'/static/products/' + item.name + '/main.jpg'"></v-img>  
+      max-width="160px"
+      max-height="320px"
+      style="margin-top:5px;margin-bottom:5px;">
+      <v-img @click="route(item.name)"  :src="'/static/products/' + item.name + '/main.jpg'" style="cursor:pointer;"></v-img>  
       
               
       <v-card-title> {{ item.name }} </v-card-title>          
       <v-card-subtitle>{{ item.description }}</v-card-subtitle>
-      <v-card-actions>
-        <v-btn color="orange lighten-2" text @click="route(item.name)"
-          >Explore</v-btn
-        >
-      </v-card-actions>
+
     </v-card>
   </div>
   </div>
@@ -78,7 +73,8 @@ export default {
 <style>
 .grid_box {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 200px);
-  justify-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(160px, max-content));
+  justify-content: space-between;
+
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <v-app id="LittleDot Manager">
+  <v-app id="LittleDot Audio">
     <v-navigation-drawer v-model="drawer" app clipped>
       <v-list dense>
         <v-subheader class="mt-4 grey--text text--darken-1"
