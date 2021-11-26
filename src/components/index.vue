@@ -69,7 +69,6 @@ export default {
     return {};
   },
   components: {
-    // <runoob> 将只在父模板可用
     products,
   },
   computed: {},
@@ -77,7 +76,7 @@ export default {
   methods: {
     route: function (product_name) {
       this.$router.push({
-        name: "products_view",
+        name: "product_view",
         params: {
           msg: product_name,
         },

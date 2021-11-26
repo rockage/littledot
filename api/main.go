@@ -19,6 +19,7 @@ func main() {
 	app.Use(logger.New())
 	index := app.Party("/", crs) //所有请求先过crs中间件
 	index.Post("/productList", productList)
+	index.Post("/productContents", productContents)
 	index.Get("/getOrdersForViewer", getOrdersForViewer)
 	index.Post("/getOrderSubOrders", getOrderSubOrders)
 	index.Get("/getDefaultList", getDefaultList)

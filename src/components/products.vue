@@ -57,7 +57,7 @@ export default {
     },
     route: function (product_name) {
       this.$router.push({
-        name: "products_view",
+        name: "product_view",
         params: {
           msg: product_name,
         },

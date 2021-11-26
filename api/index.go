@@ -36,10 +36,8 @@ type Order struct {
 }
 
 func productList(ctx iris.Context) { //获取订单数据
-
 	var sql, class_sql string
 	Class := ctx.FormValue("Class")
-	sortMethods := ctx.FormValue("sortMethods")
 	// headphone_amp	1
 	// loudspeaker_amp	2
 	// dualuse_amp		3
@@ -47,10 +45,6 @@ func productList(ctx iris.Context) { //获取订单数据
 	// regenerator		5
 	// cdplayer			6
 	// iems				7
-
-	fmt.Println("sortMethods:", sortMethods)
-	fmt.Println("Class:", Class)
-
 	switch Class {
 	case "headphone_amp":
 		class_sql = "Where class = 1 or class = 3"
@@ -78,6 +72,22 @@ func productList(ctx iris.Context) { //获取订单数据
 	var rst []map[string]string
 	rst, err = mysql_con.Query(sql)
 
+	if err == nil {
+		b, err = json.Marshal(rst)
+		if err == nil {
+			ctx.JSON(string(b))
+		}
+	}
+}
+
+func productContents(ctx iris.Context) { //获取订单数据
+	var sql string
+	product_name := ctx.FormValue("product_name")
+	sql = "SELECT contents FROM products WHERE name = '" + product_name + "'"
+	var err error
+	var b []byte
+	var rst []map[string]string
+	rst, err = mysql_con.Query(sql)
 	if err == nil {
 		b, err = json.Marshal(rst)
 		if err == nil {

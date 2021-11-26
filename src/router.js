@@ -1,7 +1,7 @@
 import VueRouter from "vue-router";
 import index from './components/index'
 import products from './components/products'
-import products_view from './components/product_view'
+import product_view from './components/product_view'
 import forums from './components/forums'
 import contact from './components/contact'
 
@@ -15,9 +15,9 @@ export default new VueRouter({
     mode: 'history',
     routes: [
         {path: '/', name: 'index', component: index},
-        {path: '/msg/:msg', name: 'products', component: products},
+        {path: '/products/:msg', name: 'products', component: products},
         {path: '/forums', name: 'forums', component: forums},
         {path: '/contact', name: 'contact', component: contact},
-        {path: '/products_view/:msg', name: 'products_view', component: products_view},
+        {path: '/product_view/:msg', name: 'product_view', component: product_view},
     ]
 }) 
