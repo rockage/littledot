@@ -14,7 +14,7 @@
             justify-content: center;
           "
         >
-          <img :src="item.src" style="max-width: 640px;max-height: 500px" />
+          <img :src="item.src" style="max-width: 100%; max-height: 500px" />
         </div>
       </v-carousel-item>
     </v-carousel>
@@ -65,11 +65,6 @@ export default {
 
 
 <style scoped>
-.h1-text {
-  text-align: center;
-  margin-top: 10px;
-}
-
 .html_output {
   line-height: 2 !important;
   white-space: pre-wrap;
@@ -77,18 +72,9 @@ export default {
   margin-top: 20px;
 }
 
-.title {
-  font-size: large;
-}
-
 .main {
   display: flex;
   margin: 10px;
   flex-direction: column;
-}
-
-.main img {
-  width: 100%;
-  height: auto;
 }
 </style>
