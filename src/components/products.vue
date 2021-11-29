@@ -9,19 +9,9 @@
       align-items: center;
     "
   >
-    <div
-      style="
-        width: 95%;
-        background: green;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-      "
-    >
-      <div style="width: 90%; background: orange" v-for="(v, i) in card_datas">
-        {{ v }} - {{ i }}
-      </div>
+
+    <div style="width: 90%; background: orange" v-for="(v, i) in card_datas" :key="i">
+      {{ p_types[i] }}
     </div>
   </div>
 </template>
@@ -54,6 +44,7 @@ export default {
     viewInit: function () {
       let me = this;
       let param = new URLSearchParams();
+      let local_data = {}
       param.append("sortMethods", "default");
       if (this.sort == "all") {
         param.append("Class", "all"); // index页面查询所有产品
@@ -66,13 +57,16 @@ export default {
           let last_type = 0;
           for (let x in raw_datas) {
             if (last_type != raw_datas[x].type) {
-              me.card_datas[raw_datas[x].type] = new Array(); // type 如果和前一次不同，说明切换了一个分类
+              local_data[raw_datas[x].type] = new Array(); // type 如果和前一次不同，说明切换了一个分类
             }
-            me.card_datas[raw_datas[x].type].push(raw_datas[x]);
+            local_data[raw_datas[x].type].push(raw_datas[x]);
+
             last_type = raw_datas[x].type;
           }
-          console.log(me.card_datas);
-          //this.card_datas = {1:1,2:2,3:3}
+          console.log(local_data);
+          me.card_datas=JSON.parse(JSON.stringify(local_data))
+         
+
         }
       });
     },
@@ -89,7 +83,7 @@ export default {
   mounted: function () {
     setTimeout(() => {
       this.viewInit(); //娃娃消失
-    }, 4000);
+    }, 2000);
   },
 };
 </script>
