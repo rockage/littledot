@@ -61,7 +61,7 @@ func productList(ctx iris.Context) { //获取订单数据
 	case "iems":
 		class_sql = "Where class = 7"
 	case "all":
-		class_sql = ""
+		class_sql = "ORDER BY type, position"
 
 	}
 

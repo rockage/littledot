@@ -30,7 +30,6 @@ export default {
       carousel: false,
       output: "",
       pic_group: [],
-      colors: ["primary", "secondary", "yellow darken-2", "red", "orange"],
     };
   },
   computed: {},

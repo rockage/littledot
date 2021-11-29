@@ -1,27 +1,28 @@
 <template>
-<div style="
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          background: #e1e4e3;
-          width:100%;
-          ">
-  <div class="grid_box" style="background:white;width:95%;box-shadow: darkgrey 1px 1px 1px 1px;">
-    <v-card
-      tile
-      v-for="item in card_datas"
-      v-bind:key="item.id"
-      max-width="160px"
-      max-height="320px"
-      style="margin-top:5px;margin-bottom:5px;">
-      <v-img @click="route(item.name)"  :src="'/static/products/' + item.name + '/main.jpg'" style="cursor:pointer;"></v-img>  
-      
-              
-      <v-card-title> {{ item.name }} </v-card-title>          
-      <v-card-subtitle>{{ item.description }}</v-card-subtitle>
-
-    </v-card>
-  </div>
+  <div
+    style="
+      background: red;
+      width: 100%;
+      font-family: 'Lato', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    "
+  >
+    <div
+      style="
+        width: 95%;
+        background: green;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      "
+    >
+      <div style="width: 90%; background: orange" v-for="(v, i) in card_datas">
+        {{ v }} - {{ i }}
+      </div>
+    </div>
   </div>
 </template>
 <script>
@@ -31,7 +32,17 @@ export default {
   data() {
     return {
       show: false,
-      card_datas: [],
+      card_datas: {},
+      p_types: {
+        1: "Tube Headphone Amplifier",
+        2: "Hybrid Headphone Amplifier",
+        3: "Solid State Amplifier",
+        4: "Speaker Amplifier",
+        5: "DAC & Streaming",
+        6: "Power Regenerator",
+        7: "CD Player",
+        8: "Headphone & IEMs",
+      },
     };
   },
   computed: {},
@@ -51,7 +62,17 @@ export default {
       }
       this.axios.post("productList", param).then((response) => {
         if (response.data) {
-          me.card_datas = JSON.parse(response.data);
+          let raw_datas = JSON.parse(response.data);
+          let last_type = 0;
+          for (let x in raw_datas) {
+            if (last_type != raw_datas[x].type) {
+              me.card_datas[raw_datas[x].type] = new Array(); // type 如果和前一次不同，说明切换了一个分类
+            }
+            me.card_datas[raw_datas[x].type].push(raw_datas[x]);
+            last_type = raw_datas[x].type;
+          }
+          console.log(me.card_datas);
+          //this.card_datas = {1:1,2:2,3:3}
         }
       });
     },
@@ -64,10 +85,12 @@ export default {
       });
     },
   },
-  created() {
-    this.viewInit();
+  created() {},
+  mounted: function () {
+    setTimeout(() => {
+      this.viewInit(); //娃娃消失
+    }, 4000);
   },
-  mounted: function () {},
 };
 </script>
 <style>
@@ -75,6 +98,5 @@ export default {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(160px, max-content));
   justify-content: space-between;
-
 }
 </style>

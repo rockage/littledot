@@ -84,7 +84,7 @@ export default {
       },
       {
         icon: "mdi-speaker",
-        text: "Loud Speaker Amps",
+        text: "Speaker Amps",
         path: "products",
         msg: "loudspeaker_amp",
       },
