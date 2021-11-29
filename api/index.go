@@ -36,8 +36,8 @@ type Order struct {
 }
 
 func productList(ctx iris.Context) { //获取订单数据
-	var sql, class_sql string
-	Class := ctx.FormValue("Class")
+	var sql, p_type_sql string
+	p_type := ctx.FormValue("p_type")
 	// headphone_amp	1
 	// loudspeaker_amp	2
 	// dualuse_amp		3
@@ -45,27 +45,27 @@ func productList(ctx iris.Context) { //获取订单数据
 	// regenerator		5
 	// cdplayer			6
 	// iems				7
-	switch Class {
+	switch p_type {
 	case "headphone_amp":
-		class_sql = "Where class = 1 or class = 3"
+		p_type_sql = "Where type = 1 or type = 2  or type = 3 or type = 4 ORDER BY type, position"
 	case "loudspeaker_amp":
-		class_sql = "Where class = 2 or class = 3"
+		p_type_sql = "Where type = 4 or type = 9 ORDER BY type, position"
 	case "dualuse_amp":
-		class_sql = "Where class = 3"
+		p_type_sql = "Where type = 4"
 	case "dac":
-		class_sql = "Where class = 4"
+		p_type_sql = "Where type = 5"
 	case "regenerator":
-		class_sql = "Where class = 5"
+		p_type_sql = "Where type = 6"
 	case "cdplayer":
-		class_sql = "Where class = 6"
+		p_type_sql = "Where type = 7"
 	case "iems":
-		class_sql = "Where class = 7"
+		p_type_sql = "Where type = 8"
 	case "all":
-		class_sql = "ORDER BY type, position"
+		p_type_sql = "ORDER BY type, position"
 
 	}
 
-	sql = "Select * From products " + class_sql
+	sql = "Select * From products " + p_type_sql
 	fmt.Println("SQL:", sql)
 	var err error
 	var b []byte
