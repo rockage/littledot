@@ -44,22 +44,32 @@
           padding: 10px;
         "
       >
-        <v-card
-          tile
+        <div
           v-for="item in v"
           v-bind:key="item.id"
-          max-width="160px"
-          max-height="320px"
-          style="margin: 5px; border-radius: 25px"
+          style="
+            margin: 5px;
+            display: flex;
+            flex-direction: column;
+             justify-content:  space-around;
+            max-width:170px;
+            border-radius:5px;
+            box-shadow: darkgrey 1px 1px 1px 1px;
+          "
         >
-          <v-img
+          <img
             @click="route(item.name)"
             :src="'/static/products/' + item.name + '/main.jpg'"
-            style="cursor: pointer"
-          ></v-img>
-                    <v-card-title> {{ item.name }} </v-card-title>          
-          <v-card-subtitle>{{ item.description }}</v-card-subtitle>
-        </v-card>
+            style="cursor: pointer;width:170px;height:170px;"
+          >
+                   
+          <div style="margin-left: 5px; font-weight: 900">{{ item.name }}</div>
+                   
+          <div
+            style="margin-left: 5px; margin-top:5px;font-size:smaller;color:#757575;"
+            v-html="item.description"
+          ></div>
+        </div>
       </div>
     </div>
   </div>
@@ -101,6 +111,7 @@ export default {
       }
       this.axios.post("productList", param).then((response) => {
         if (response.data) {
+          me.card_datas = {};
           let raw_datas = JSON.parse(response.data);
           let last_type = 0;
           for (let x in raw_datas) {
@@ -113,7 +124,6 @@ export default {
           }
           //me.card_datas = JSON.parse(JSON.stringify(local_data)); // 这个方案也可以解决vue视图不更新的问题
           me.card_datas = Object.assign({}, me.card_datas, local_data);
-
         }
       });
     },
