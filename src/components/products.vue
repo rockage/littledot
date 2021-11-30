@@ -51,7 +51,7 @@
             margin: 5px;
             display: flex;
             flex-direction: column;
-             justify-content:  space-around;
+             justify-content:  start;
             max-width:170px;
             border-radius:5px;
             box-shadow: darkgrey 1px 1px 1px 1px;
@@ -91,6 +91,7 @@ export default {
         6: "Power Regenerator",
         7: "CD Player",
         8: "Headphone & IEMs",
+        9: "Loud Speaker Amplifier",
       },
     };
   },

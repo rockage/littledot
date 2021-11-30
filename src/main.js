@@ -12,8 +12,8 @@ Vue.config.productionTip = false
 Vue.config.productionTip = false
 Vue.prototype.axios = axios
 axios.defaults.withCredentials = true
-//axios.defaults.baseURL = 'https://littledot.net/api/'
-axios.defaults.baseURL = 'http://192.168.0.2:5050/'
+axios.defaults.baseURL = 'https://littledot.net/api/'
+//axios.defaults.baseURL = 'http://192.168.0.2:5050/'
 
 
 new Vue({
