@@ -4,6 +4,7 @@ import products from './components/products'
 import product_view from './components/product_view'
 import forums from './components/forums'
 import contact from './components/contact'
+import WX20211208 from './components/contact'
 
 
 const originalPush = VueRouter.prototype.push;
